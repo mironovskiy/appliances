@@ -32,19 +32,19 @@ public class Parser {
         return appliance;
     }
 
-    private Object parseStringToOven(String string){
+    private Oven parseStringToOven(String string){
         String[] splittedString = string.split(separatorRegEx);
         Oven oven = new Oven(splittedString[2], splittedString[4], splittedString[6], splittedString[8], splittedString[10], splittedString[12]);
         return oven;
     }
 
-    private Object parseStringToLaptop(String string){
+    private Laptop parseStringToLaptop(String string){
         String[] splittedString = string.split(separatorRegEx);
         Laptop laptop = new Laptop(splittedString[2], splittedString[4], splittedString[6], splittedString[8], splittedString[10],splittedString[12]);
         return laptop;
     }
 
-    private Object parseStringToRefrigerator(String string){
+    private Refrigerator parseStringToRefrigerator(String string){
         String[] splittedString = string.split(separatorRegEx);
         Refrigerator refrigerator = new Refrigerator(splittedString[2], splittedString[4], splittedString[6], splittedString[8], splittedString[10], splittedString[12]);
         return refrigerator;
@@ -56,13 +56,13 @@ public class Parser {
         return vacuumCleaner;
     }
 
-    private Object parseStringToTabletPC(String string){
+    private TabletPC parseStringToTabletPC(String string){
         String[] splittedString = string.split(separatorRegEx);
         TabletPC tabletPC = new TabletPC(splittedString[2], splittedString[4], splittedString[6], splittedString[8], splittedString[10]);
         return tabletPC;
     }
 
-    private Object parseStringToSpeakers(String string){
+    private Speakers parseStringToSpeakers(String string){
         String[] splittedString = string.split(separatorRegEx);
         Speakers speakers = new Speakers(splittedString[2], splittedString[4], splittedString[6], splittedString[8]);
         return speakers;
