@@ -1,4 +1,6 @@
-package by.epamtc.task.appliance;
+package by.epamtc.task.entity;
+
+import java.util.Objects;
 
 public class VacuumCleaner {
     private String powerConsumption;
@@ -17,6 +19,9 @@ public class VacuumCleaner {
         this.cleaningWidth = cleaningWidth;
     }
 
+    public VacuumCleaner() {
+    }
+
     @Override
     public String toString() {
         return "VacuumCleaner{" +
@@ -27,5 +32,23 @@ public class VacuumCleaner {
                 ", motorSpeedRegulation='" + motorSpeedRegulation + '\'' +
                 ", cleaningWidth='" + cleaningWidth + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        VacuumCleaner that = (VacuumCleaner) o;
+        return Objects.equals(powerConsumption, that.powerConsumption) &&
+                Objects.equals(filterType, that.filterType) &&
+                Objects.equals(bagType, that.bagType) &&
+                Objects.equals(wandType, that.wandType) &&
+                Objects.equals(motorSpeedRegulation, that.motorSpeedRegulation) &&
+                Objects.equals(cleaningWidth, that.cleaningWidth);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(powerConsumption, filterType, bagType, wandType, motorSpeedRegulation, cleaningWidth);
     }
 }

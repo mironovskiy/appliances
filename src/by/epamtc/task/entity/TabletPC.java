@@ -1,4 +1,6 @@
-package by.epamtc.task.appliance;
+package by.epamtc.task.entity;
+
+import java.util.Objects;
 
 public class TabletPC {
     private String batteryCapacity;
@@ -15,6 +17,9 @@ public class TabletPC {
         this.color = color;
     }
 
+    public TabletPC() {
+    }
+
     @Override
     public String toString() {
         return "TabletPC{" +
@@ -24,5 +29,22 @@ public class TabletPC {
                 ", flashMemoryCapacity='" + flashMemoryCapacity + '\'' +
                 ", color='" + color + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TabletPC tabletPC = (TabletPC) o;
+        return Objects.equals(batteryCapacity, tabletPC.batteryCapacity) &&
+                Objects.equals(displayInches, tabletPC.displayInches) &&
+                Objects.equals(memoryRom, tabletPC.memoryRom) &&
+                Objects.equals(flashMemoryCapacity, tabletPC.flashMemoryCapacity) &&
+                Objects.equals(color, tabletPC.color);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(batteryCapacity, displayInches, memoryRom, flashMemoryCapacity, color);
     }
 }

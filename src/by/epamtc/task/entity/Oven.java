@@ -1,4 +1,6 @@
-package by.epamtc.task.appliance;
+package by.epamtc.task.entity;
+
+import java.util.Objects;
 
 public class Oven {
     private String powerConsumption;
@@ -17,6 +19,9 @@ public class Oven {
         this.width = width;
     }
 
+    public Oven() {
+    }
+
     @Override
     public String toString() {
         return "Oven{" +
@@ -27,6 +32,24 @@ public class Oven {
                 ", height='" + height + '\'' +
                 ", width='" + width + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Oven oven = (Oven) o;
+        return Objects.equals(powerConsumption, oven.powerConsumption) &&
+                Objects.equals(weight, oven.weight) &&
+                Objects.equals(capacity, oven.capacity) &&
+                Objects.equals(depth, oven.depth) &&
+                Objects.equals(height, oven.height) &&
+                Objects.equals(width, oven.width);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(powerConsumption, weight, capacity, depth, height, width);
     }
 
 }

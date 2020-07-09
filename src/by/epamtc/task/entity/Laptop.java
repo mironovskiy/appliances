@@ -1,4 +1,6 @@
-package by.epamtc.task.appliance;
+package by.epamtc.task.entity;
+
+import java.util.Objects;
 
 public class Laptop {
     private String batteryCapacity;
@@ -17,6 +19,9 @@ public class Laptop {
         this.displayInchs = displayInchs;
     }
 
+    public Laptop() {
+    }
+
     @Override
     public String toString() {
         return "Laptop{" +
@@ -27,5 +32,23 @@ public class Laptop {
                 ", cpu='" + cpu + '\'' +
                 ", displayInchs='" + displayInchs + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Laptop laptop = (Laptop) o;
+        return Objects.equals(batteryCapacity, laptop.batteryCapacity) &&
+                Objects.equals(os, laptop.os) &&
+                Objects.equals(memoryRom, laptop.memoryRom) &&
+                Objects.equals(systemMemory, laptop.systemMemory) &&
+                Objects.equals(cpu, laptop.cpu) &&
+                Objects.equals(displayInchs, laptop.displayInchs);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(batteryCapacity, os, memoryRom, systemMemory, cpu, displayInchs);
     }
 }

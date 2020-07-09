@@ -1,4 +1,6 @@
-package by.epamtc.task.appliance;
+package by.epamtc.task.entity;
+
+import java.util.Objects;
 
 public class Speakers {
     private String powerConsumption;
@@ -13,6 +15,9 @@ public class Speakers {
         this.cordLength = cordLength;
     }
 
+    public Speakers() {
+    }
+
     @Override
     public String toString() {
         return "Speakers{" +
@@ -21,5 +26,21 @@ public class Speakers {
                 ", frequencyRange='" + frequencyRange + '\'' +
                 ", cordLength='" + cordLength + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Speakers speakers = (Speakers) o;
+        return Objects.equals(powerConsumption, speakers.powerConsumption) &&
+                Objects.equals(numberOfSpeakers, speakers.numberOfSpeakers) &&
+                Objects.equals(frequencyRange, speakers.frequencyRange) &&
+                Objects.equals(cordLength, speakers.cordLength);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(powerConsumption, numberOfSpeakers, frequencyRange, cordLength);
     }
 }
